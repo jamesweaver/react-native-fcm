@@ -233,8 +233,15 @@ RCT_EXPORT_METHOD(requestPermissions)
      ];
 #endif
   }
-  
+
   [[UIApplication sharedApplication] registerForRemoteNotifications];
+}
+
+RCT_EXPORT_METHOD(unregisterToken)
+{
+  [[FIRInstanceID instanceID] deleteIDWithHandler:^(NSError *error){
+    NSLog(@"%@",error);
+  }];
 }
 
 RCT_EXPORT_METHOD(subscribeToTopic: (NSString*) topic)

@@ -21,6 +21,10 @@ FCM.requestPermissions = () => {
     return RNFIRMessaging.requestPermissions();
 };
 
+FCM.unregisterToken = () => {
+    return RNFIRMessaging.unregisterToken();
+};
+
 FCM.presentLocalNotification = (details) => {
     details.id = details.id || new Date().getTime().toString()
     details.local_notification = true;
